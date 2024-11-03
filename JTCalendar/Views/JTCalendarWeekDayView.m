@@ -47,8 +47,6 @@
         [dayViews addObject:label];
         
         label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = [UIColor colorWithRed:152./256. green:147./256. blue:157./256. alpha:1.];
-        label.font = [UIFont systemFontOfSize:11];
     }
     
     _dayViews = dayViews;
@@ -78,7 +76,7 @@
     
     for(NSInteger i = 0; i < days.count; ++i){
         NSString *day = days[i];
-        [days replaceObjectAtIndex:i withObject:[day uppercaseString]];
+        [days replaceObjectAtIndex:i withObject:[day capitalizedString]];
     }
     
     // Redorder days for be conform to calendar
@@ -96,12 +94,21 @@
     for(int i = 0; i < NUMBER_OF_DAY_BY_WEEK; ++i){
         UILabel *label =  _dayViews[i];
         label.text = days[i];
+        label.textColor = self.manager.settings.weekDayTextColor;
+        label.font = self.manager.settings.weekDayTextFont;
     }
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    if (self.manager.settings.weekViewHeight != 0) {
+        //外部需要修改顶部周显示的高度
+        CGRect frame = self.frame;
+        frame.size.height = self.manager.settings.weekViewHeight;
+        self.frame = frame;
+    }
     
     if(!_dayViews){
         return;

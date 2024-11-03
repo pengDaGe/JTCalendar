@@ -6,7 +6,7 @@
 //
 
 #import "BasicViewController.h"
-
+#import "CustomCalendarDayView.h"
 
 @interface BasicViewController (){
     NSMutableDictionary *_eventsByDate;
@@ -40,6 +40,9 @@
     
     _calendarManager = [JTCalendarManager new];
     _calendarManager.delegate = self;
+    _calendarManager.settings.weekDayTextColor = [UIColor redColor];
+    _calendarManager.settings.weekDayTextFont = [UIFont boldSystemFontOfSize:15];
+    _calendarManager.settings.pageViewNumberOfWeeks = 5;
     
     // Generate random events sort by date using a dateformatter for the demonstration
     [self createRandomEvents];
@@ -77,41 +80,45 @@
 
 // Exemple of implementation of prepareDayView method
 // Used to customize the appearance of dayView
-- (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView
-{
-    // Today
-    if([_calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
-        dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor blueColor];
-        dayView.dotView.backgroundColor = [UIColor whiteColor];
-        dayView.textLabel.textColor = [UIColor whiteColor];
-    }
-    // Selected date
-    else if(_dateSelected && [_calendarManager.dateHelper date:_dateSelected isTheSameDayThan:dayView.date]){
-        dayView.circleView.hidden = NO;
-        dayView.circleView.backgroundColor = [UIColor redColor];
-        dayView.dotView.backgroundColor = [UIColor whiteColor];
-        dayView.textLabel.textColor = [UIColor whiteColor];
-    }
-    // Other month
-    else if(![_calendarManager.dateHelper date:_calendarContentView.date isTheSameMonthThan:dayView.date]){
-        dayView.circleView.hidden = YES;
-        dayView.dotView.backgroundColor = [UIColor redColor];
-        dayView.textLabel.textColor = [UIColor lightGrayColor];
-    }
-    // Another day of the current month
-    else{
-        dayView.circleView.hidden = YES;
-        dayView.dotView.backgroundColor = [UIColor redColor];
-        dayView.textLabel.textColor = [UIColor blackColor];
-    }
-    
-    if([self haveEventForDay:dayView.date]){
-        dayView.dotView.hidden = NO;
-    }
-    else{
-        dayView.dotView.hidden = YES;
-    }
+//- (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView
+//{
+//    // Today
+//    if([_calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
+//        dayView.circleView.hidden = NO;
+//        dayView.circleView.backgroundColor = [UIColor blueColor];
+//        dayView.dotView.backgroundColor = [UIColor whiteColor];
+//        dayView.textLabel.textColor = [UIColor whiteColor];
+//    }
+//    // Selected date
+//    else if(_dateSelected && [_calendarManager.dateHelper date:_dateSelected isTheSameDayThan:dayView.date]){
+//        dayView.circleView.hidden = NO;
+//        dayView.circleView.backgroundColor = [UIColor redColor];
+//        dayView.dotView.backgroundColor = [UIColor whiteColor];
+//        dayView.textLabel.textColor = [UIColor whiteColor];
+//    }
+//    // Other month
+//    else if(![_calendarManager.dateHelper date:_calendarContentView.date isTheSameMonthThan:dayView.date]){
+//        dayView.circleView.hidden = YES;
+//        dayView.dotView.backgroundColor = [UIColor redColor];
+//        dayView.textLabel.textColor = [UIColor lightGrayColor];
+//    }
+//    // Another day of the current month
+//    else{
+//        dayView.circleView.hidden = YES;
+//        dayView.dotView.backgroundColor = [UIColor redColor];
+//        dayView.textLabel.textColor = [UIColor blackColor];
+//    }
+//    
+//    if([self haveEventForDay:dayView.date]){
+//        dayView.dotView.hidden = NO;
+//    }
+//    else{
+//        dayView.dotView.hidden = YES;
+//    }
+//}
+
+- (UIView<JTCalendarDay> *)calendarBuildDayView:(JTCalendarManager *)calendar {
+    return  [[CustomCalendarDayView alloc] init] ;
 }
 
 - (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView

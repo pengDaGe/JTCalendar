@@ -29,6 +29,10 @@ typedef NS_ENUM(NSInteger, JTCalendarWeekDayFormat) {
 @property (nonatomic) BOOL pageViewHaveWeekDaysView;
 @property (nonatomic) NSUInteger pageViewWeekModeNumberOfWeeks;
 @property (nonatomic) BOOL pageViewWeekDaysViewAutomaticHeight;
+//顶部周View的高度
+@property (nonatomic) CGFloat weekViewHeight;
+@property (nonatomic) UIColor *weekDayTextColor;
+@property (nonatomic) UIFont *weekDayTextFont;
 
 // WeekDay view
 

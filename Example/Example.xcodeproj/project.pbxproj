@@ -20,6 +20,7 @@
 		AB6843E81A06FCE2000ADE68 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6843E71A06FCE2000ADE68 /* AppDelegate.m */; };
 		AB6843F01A06FCE2000ADE68 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6843EF1A06FCE2000ADE68 /* Images.xcassets */; };
 		AB6843F31A06FCE2000ADE68 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6843F11A06FCE2000ADE68 /* LaunchScreen.xib */; };
+		CD5C56262CD7015B003FCB52 /* CustomCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5C56252CD7015B003FCB52 /* CustomCalendarDayView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		AB6843EF1A06FCE2000ADE68 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AB6843F21A06FCE2000ADE68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		ACB1558A205302184CDC8B78 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CD5C56242CD7015B003FCB52 /* CustomCalendarDayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCalendarDayView.h; sourceTree = "<group>"; };
+		CD5C56252CD7015B003FCB52 /* CustomCalendarDayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCalendarDayView.m; sourceTree = "<group>"; };
 		EA29A33B12777736F86B89BA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +74,8 @@
 		AB21D7B01B555839006BC9D1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CD5C56242CD7015B003FCB52 /* CustomCalendarDayView.h */,
+				CD5C56252CD7015B003FCB52 /* CustomCalendarDayView.m */,
 				AB21D79E1B55570E006BC9D1 /* BasicViewController.h */,
 				AB21D79F1B55570E006BC9D1 /* BasicViewController.m */,
 				AB21D7A01B55570E006BC9D1 /* BasicViewController.xib */,
@@ -177,6 +182,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -264,6 +270,7 @@
 				AB21D7B41B55694B006BC9D1 /* VerticalViewController.m in Sources */,
 				AB6843E81A06FCE2000ADE68 /* AppDelegate.m in Sources */,
 				AB6843E51A06FCE2000ADE68 /* main.m in Sources */,
+				CD5C56262CD7015B003FCB52 /* CustomCalendarDayView.m in Sources */,
 				AB21D7AE1B555738006BC9D1 /* SelectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -31,6 +31,9 @@
     _zeroPaddedDayFormat = YES;
     _weekModeEnabled = NO;
     _pageViewWeekModeNumberOfWeeks = 1;
+    _weekViewHeight = 0.0;
+    _weekDayTextColor = [UIColor colorWithRed:152./256. green:147./256. blue:157./256. alpha:1.];
+    _weekDayTextFont = [UIFont systemFontOfSize:11];
 }
 
 @end
